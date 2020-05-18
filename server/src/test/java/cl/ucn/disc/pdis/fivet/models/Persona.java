@@ -62,6 +62,14 @@ public final class Persona {
     @DatabaseField(canBeNull = false, index = true)
     private String run;
 
+    /**
+     * Empty Constructor, for test
+     */
+    Persona(){
+        //nothing here.
+    }
+
+
 
     /**
      * The constructor

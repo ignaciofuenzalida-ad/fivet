@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2020 Diego Urrutia-Astorga <durrutia@ucn.cl>.
+ * Copyright (c) 2020 Ignacio Fuenzalida Veas
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,21 +20,46 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
+ *
  */
 
-plugins {
-    id 'java'
-}
+package cl.ucn.disc.pdis.fivet.repository;
 
-dependencies {
+import java.sql.SQLException;
+import java.util.List;
 
-    // ORM Lite
-    implementation 'com.j256.ormlite:ormlite-core:5.1'
-    implementation 'com.j256.ormlite:ormlite-jdbc:5.1'
+public interface Repository<T,ID> {
 
-    // Data driver h2
-    implementation "com.h2database:h2:1.4.200"
+    /**
+     * Create an entity into database's table.
+     * @param entity the new to add.
+     */
+    void create(T entity) throws SQLException;
 
+    /**
+     * Delete an entity from the database's table.
+     * @param id primary key of the entity.
+     */
+    void delete(ID id) throws SQLException;
+
+    /**
+     * Update an entity from the database's table.
+     * @param entity to update.
+     */
+    void update(T entity) throws SQLException;
+
+    /**
+     * Get an entity from the database's table.
+     * @param id primary key of the entity.
+     * @return a T entity.
+     */
+    T findById(ID id) throws SQLException;
+
+    /**
+     * Get all entities from the database's table.
+     * @return a list of T entities.
+     */
+    List<T> getAll() throws SQLException;
 
 
 }
