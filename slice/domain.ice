@@ -27,6 +27,251 @@
 module model {
 
     /**
+     * Clase Persona
+     */
+     class Persona{
+
+        /**
+         * Primary Key
+         */
+        int id;
+
+        /**
+         * Rut: 193982336
+         */
+        string rut;
+
+        /**
+         * Nombre
+         */
+        string nombre;
+
+        /*
+         * Apellido
+         */
+        string apellido;
+
+        /**
+         * Direccion
+         */
+        string direccion;
+
+        /**
+         * Telefono fijo
+         */
+        long telefonoFijo;
+
+        /**
+         * Telefono movil
+         */
+        long telefonoMovil;
+
+        /**
+         * Correo electronico
+         */
+         string email;
+
+
+     }
+
+     /**
+       * Sexo del animal
+       */
+     enum Sexo {
+        MACHO,HEMBRA
+     };
+
+     /**
+      * Tipo de paciente
+      */
+     enum TipoPaciente {
+     INTERNO, EXTERNO
+     };
+
+     /**
+      * La ficha
+      */
+     class Ficha {
+
+         /**
+          * Primary Key
+          */
+         int id;
+
+         /**
+          * Numero de  cha
+          */
+         int numeroFicha;
+
+         /**
+          * Especie
+          */
+         string especie;
+
+         /**
+          * Fecha nacimiento
+          */
+         string fechaNacimiento;
+
+         /**
+          * Raza
+          */
+         string raza;
+
+         /**
+          * Sexo
+          */
+         Sexo sexo;
+
+         /**
+          * Color
+          */
+         string color;
+
+         /**
+          * Tipo
+          */
+         TipoPaciente tipo;
+
+
+
+     }
+
+     /**
+       * El control
+       */
+     class Control {
+
+        /**
+         * ID ficha
+         */
+        int id;
+
+        /**
+         * Fecha del contorl
+         */
+        string fechaControl;
+
+        /**
+         * Fecha proximo control
+         */
+        string fechaProximoControl;
+
+        /**
+         * Temperatura en °C
+         */
+        int temperatura;
+
+        /**
+         * Peso
+         */
+        int peso;
+
+        /**
+         * Altura
+         */
+        int altura;
+
+        /**
+         * Diagnostico
+         */
+        string diagnostico;
+
+        /**
+         * Nombre del veterinario
+         */
+        string nombreVeterinario;
+
+
+
+
+     }
+
+     /**
+      * La Foto
+      */
+     class Foto{
+
+        /**
+          * Ficha Id
+          */
+        string fichaId;
+
+        /**
+         * URL foto
+         */
+        string urlFoto;
+
+     }
+
+     /**
+      * El examen
+      */
+     class Examen{
+
+        /**
+         * ID del control
+         */
+        int controlId;
+
+        /**
+         * Nombre del Examen
+         */
+        string nombreExamen;
+
+
+        /**
+         * Fecha del examen
+         */
+        string fechaExamen;
+
+
+     }
+
+     /**
+      * Interfaz de Contratos
+      */
+     interface Contratos {
+
+        /**
+         * Ingreado un numero de ficha, se retorna la ficha asociada.
+         * @param numero numero entero asociado a la ficha
+         * @return Ficha la ficha asociada
+         */
+        Ficha obtenerFicha(int numero);
+
+        /**
+         * Ingreado datos de un paciente creando una nueva ficha.
+         * @param ficha objeto ficha por agregar
+         * @return bool confirmacion
+         */
+        bool registrarFicha(Ficha ficha);
+
+        /**
+         * Ingreado datos de un un nuevo dueño.
+         * @param persona objeto persona por agregar
+         * @return bool confirmacion
+         */
+        bool registrarDuenio(Persona persona);
+
+        /**
+         * Registro de un nuevo control.
+         * @param control objeto control por agregar
+         * @return bool confirmacion
+         */
+        bool registrarControl(Control control);
+
+        /**
+         * Ingreso de una foto
+         * @param foto objeto foto por agregar
+         * @return bool confirmacion de la foto.
+         */
+        bool agregarFoto(Foto foto);
+
+
+     }
+
+    /**
      * The base system.
      */
      interface TheSystem {

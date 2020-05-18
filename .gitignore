@@ -31,6 +31,10 @@
 /.idea/jarRepositories.xml
 /.idea/compiler.xml
 
+# generated-src
+/server/build/generated-src/
+/client/build/generated-src/
+
 # Trashy-trashy
 .DS_Store
 /**/build
