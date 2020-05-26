@@ -31,7 +31,7 @@
 /.idea/jarRepositories.xml
 /.idea/compiler.xml
 
-# generated-src
+# generated-src = /**/build
 /server/build/generated-src/
 /client/build/generated-src/
 
